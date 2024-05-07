@@ -16,19 +16,25 @@ const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
 
 const newDistance = initialDistance + (velocityInMetersPerSecond*timeInSeconds) //calcultes new distance
-const finalDistanceInKm = newDistance/1000 //new distance
+const finalDistanceInKm = newDistance/1000 //final distance in km
 const remainingFuel = fuelBurnRate*timeInSeconds //calculates remaining fuel
+const finalFuel = initialAmountOfFuel - remainingFuel //final amount of fuel
 
 
 // Pick up an error with how the function below is called and make it robust to such errors
-const calcNewVel = (velocityInKmh, spacecraftAcceleration, timeInSeconds) => { 
-  return velocityInKmh + (spacecraftAcceleration*timeInSeconds)
+const calcFinalVelocity = (velocityInMetersPerSecond , spacecraftAcceleration, timeInSeconds) => { 
+  // Calculate the final velocity in m/s using the kinematic equation
+  const finalVelocityInMetersPerSecond = velocityInMetersPerSecond  + spacecraftAcceleration * timeInSeconds;
+  // Convert the final velocity from m/s to km/h
+  const finalVelocityInKmh = finalVelocityInMetersPerSecond * 3600 / 1000;
+
+  return finalVelocityInKmh;
 }
-const newVelocity = calcNewVel(spacecraftAcceleration, velocityInKmh, timeInSeconds) //calculates new velocity based on acceleration
+const newVelocity = calcFinalVelocity(velocityInMetersPerSecond ,spacecraftAcceleration , timeInSeconds) //calculates new velocity based on acceleration
 
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
 console.log(`Corrected New Distance: ${finalDistanceInKm} km`);
-console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
+console.log(`Corrected Remaining Fuel: ${finalFuel} kg`);
 
 
 

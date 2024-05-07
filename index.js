@@ -21,9 +21,14 @@ const finalDistanceInKm = newDistance/1000 //final distance in km
 const remainingFuel = fuelBurnRate*timeInSeconds //calculates remaining fuel
 const finalFuel = initialAmountOfFuel - remainingFuel //final amount of fuel
 
- //calculates new velocity based on acceleration
-
-
+/**
+ * Calculates the final velocity in km/h given the initial velocity, acceleration, and time.
+ *
+ * @param {number} velocityInMetersPerSecond - The initial velocity in m/s.
+ * @param {number} spacecraftAcceleration - The acceleration in m/s².
+ * @param {number} timeInSeconds - The time in seconds.
+ * @returns {number} The final velocity in km/h.
+ */
 // Pick up an error with how the function below is called and make it robust to such errors
 const calcFinalVelocity = ({velocityInMetersPerSecond , spacecraftAcceleration, timeInSeconds}) => { 
   // Calculate the final velocity in m/s using the kinematic equation
@@ -37,6 +42,7 @@ const calcFinalVelocity = ({velocityInMetersPerSecond , spacecraftAcceleration, 
   
   return finalVelocityInKmh;
 }
+ //calculates new velocity based on acceleration
 const newVelocity = calcFinalVelocity({
   velocityInMetersPerSecond: velocityInMetersPerSecond ,
   spacecraftAcceleration: spacecraftAcceleration ,

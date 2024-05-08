@@ -36,9 +36,9 @@ const calcFinalVelocity = ({velocityInMetersPerSecond , spacecraftAcceleration, 
   // Convert the final velocity from m/s to km/h
   const finalVelocityInKmh = finalVelocityInMetersPerSecond * 3600 / 1000;
 
-  if(velocityInMetersPerSecond !== 2777.777777777778) throw new Error("velocityInMetersPerSecond should be equal to 2777.777777777778");
-  if(spacecraftAcceleration !== 3) throw new Error("spacecraftAcceleration should be equal to 3");
-  if(timeInSeconds !== 3600) throw new Error("timeInSeconds should be equal to 3600");
+  if(velocityInMetersPerSecond !== 2777.777777777778) throw new Error("The velocityInMetersPerSecond parameter should be equal to velocityInMetersPerSecond variable");
+  if(spacecraftAcceleration !== 3) throw new Error("The spacecraftAcceleration parameter should be equal to spacecraftAcceleration variable");
+  if(timeInSeconds !== 3600) throw new Error("The timeInSeconds parameter should be equal to the timeInSeconds variable");
   
   return finalVelocityInKmh;
 }
